@@ -27,5 +27,6 @@ urlpatterns = [
     path('stock_update/' , ino.stockupdate),
     path('ref/' , ino.input_data),
     path('stock_update_save/' , ino.stock_update_save),
-    path ('stock_update_table/' , ino.stock_update_table)
+    path ('stock_update_table/' , ino.stock_update_table),
+    path ('/stock_update/stock_update_table/' , ino.stock_update_table)
 ]
