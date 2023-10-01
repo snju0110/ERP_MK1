@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta  charset="UTF-8" name="viewport" content=" initial-scale= 0.6">
+    <title>Welcome Home!</title>
+    <link rel="stylesheet" href="{% static 'inout_static/POC_FORM.css' %}">
+
+</head>
+<body class="page">
+
+<div class="nav-bar">
+    <div class = "home">
+        <a href = '/Jarvis/'>Home /</a>
+        <a href = '/doccat/'>Document Category</a>
+</div>
+<!--<a class = 'nav-bar-text' href="https://www.example.com" >Home</a>-->
+    <div class = "filter-bar">
+    <form method="POST" action = '/docviewer/{{url}}/' >
+        {% csrf_token %}
+        <a>Doc Holder:</a>
+       <select name = 'holder_name'>
+           <option value={{select}}>{{select}}</option>
+           {% for i in holder %}
+           {% if i.Holder != select %}
+                <option value="{{i.Holder}}">{{i.Holder}}</option>
+           {% endif %}
+           {% endfor %}
+
+           {% if select != 'All_records' %}
+                <option value=All_records>All records</option>
+            {% endif %}
+
+       </select>
+        <input type = 'submit' value="Apply Filters">
+     </form>
+    </div>
+
+</div>
+
+
+<form method="POST" action = '/save_stock_data/'>
+    {% csrf_token %}
+
+<div class = 'user_info'>
+    <h4>Supplier details & Orderd details</h4>
+    <div class = 'iv_space'>
+    <label >Godown</label>
+        <select name = 'godown'>
+        {% for i in godowns %}
+        <option value={{i}}>{{i}}</option>
+        {% endfor %}
+            </select>
+    </div>
+    <div class = 'iv_space' >
+    <label>Supplier name:   </label>
+    <input type = 'text'  name = 'supplier' placeholder="Username">
+    </div>
+     <div class = 'iv_space' >
+    <label>Invoice Number:</label>
+    <input type = 'text' name = 'invoice_Number' placeholder="Invoice_Number">
+    </div>
+    <div class = 'iv_space' >
+    <label >Purchase Status</label>
+    <select name = 'purchase_status'>
+        {% for i in purchase_status %}
+        <option value={{i}}>{{i}}</option>
+        {% endfor %}
+    </select>
+    </div>
+    <div class = 'iv_space' >
+    <label >Payment Status</label>
+   <select name = 'payment_status'>
+       {% for i in payment_status %}
+        <option value={{i}}>{{i}}</option>
+        {% endfor %}
+   </select>
+    </div>
+</div>
+
+<div class = product_details id="container">
+     <button type="button" id="createDivButton">Add Record</button>
+    <input id="rec_count"  name = 'count'></input>
+</div>
+<div class = "gst">
+     <h4>Supplier details & Orderd details</h4>
+    <div class = 'iv_space' >
+    <label>Total Price   </label>
+    <input type = 'text'  name = 'Amount'  placeholder="Total Amount">
+        <label>Amount Payed   </label>
+    <input type = 'text'  name = 'Payed' placeholder="Payed">
+    </div>
+    <div class = 'iv_space' >
+    <label>CGST   </label>
+    <input type = 'text' name = 'cgst'  placeholder="CGST">
+    </div>
+    <div class = 'iv_space' >
+    <label>SGST   </label>
+    <input type = 'text' name = 'sgst' placeholder="SGST">
+    </div>
+    <div class = 'iv_space' >
+    <label>IGST   </label>
+    <input type = 'text' name = 'igst' placeholder="IGST">
+
+        <input type = submit id="submit_1">
+    </div>
+
+
+
+
+
+</div>
+
+</form>
+
+
+
+
+
+<!--prouct etails-->
+
+
+<!--{% for i in data %}-->
+<!--<div class = "imageholder" >-->
+
+<!--    <div class="info">&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp{{i.4}}&nbsp &nbsp &nbsp{{i.3}}</div>-->
+<!--        <img class = "pics" src= "{{i.2.url}}"  width="{{i.0}}" height="{{i.1}}">-->
+<!--        {% if i.5 != 'default.png'%}-->
+<!--        <img class = "pics" src= "{{i.5.url}}"  width="{{i.0}}" height="{{i.1}}">-->
+<!--        {% else %}-->
+<!--        {% endif %}-->
+<!--    </div>-->
+<!--{% endfor %}-->
+</body>
+</html>
+
+<script>
+ let count = 0
+document.addEventListener("DOMContentLoaded", function () {
+    var createDivButton = document.getElementById("createDivButton");
+    var container = document.getElementById("container");
+     var myLabel = document.getElementById("rec_count");
+
+    createDivButton.addEventListener("click", function () {
+        count++
+        myLabel.value   = count
+        // Create a new div element
+        var newDiv = document.createElement("div");
+        newDiv.className = "product_det"; // Optional: Apply a CSS class for styling
+
+        // Create the
+<!--        var drop1 = document.createElement("select");-->
+<!--        var option1 = document.createElement("option");-->
+<!--        {% for i in p %}-->
+<!--        option1.value = "{{i}}";-->
+<!--        option1.textContent = "{{i}}" ;-->
+<!--        drop1.add(option1);-->
+<!--        {% endfor %}-->
+
+
+
+         var sub_variant = document.createElement("select");
+         sub_variant.name = "sub_variant"+count
+         console.log("hello")
+         console.log(sub_variant.name)
+            {% for i in product %}
+                var option = document.createElement("option");
+                option.text = "{{i.variant}}";
+                sub_variant.add(option);
+               {% endfor %}
+
+          var variant = document.createElement("select");
+          variant.name = "variant"+count
+            {% for i in product %}
+                var option = document.createElement("option");
+                option.text = "{{i.sub_variant}}";
+                variant.add(option);
+               {% endfor %}
+
+        var hsn = document.createElement("input");
+        hsn.type = "text";
+        hsn.name = "hsn_name"+count
+        console.log("hsn_name"+count)
+        hsn.placeholder = "HSN";
+
+        var qty = document.createElement("input");
+        qty.name = "qty"+count
+        qty.type = "text";
+        qty.placeholder = "Qty";
+
+            var uom = document.createElement("select");
+            uom.name = "uom"+count
+            {% for i in uom %}
+                var option = document.createElement("option");
+                option.text = "{{i}}";
+                uom.add(option);
+               {% endfor %}
+
+
+        var price = document.createElement("input");
+        price.name = "price"+count
+        price.type = "text";
+        price.placeholder = "price";
+
+        // Append the text input boxes to the div
+        newDiv.appendChild(variant);
+        newDiv.appendChild(sub_variant)
+        newDiv.appendChild(hsn);
+        newDiv.appendChild(qty);
+        newDiv.appendChild(uom);
+        newDiv.appendChild(price);
+
+
+
+        // Append the new div to the container
+        container.appendChild(newDiv);
+    });
+});
+
+</script>

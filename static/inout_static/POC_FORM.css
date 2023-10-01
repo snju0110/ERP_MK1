@@ -1,0 +1,238 @@
+.page{
+background-color : #AFB3B7;
+
+
+
+background-size: 1200px 800px;
+}
+.page1{
+background-color : black;
+
+background-size: 1200px 800px;
+}
+.logo{
+padding :0px;
+margin : 0px;
+}
+
+.info{
+
+height:30px;
+background-color:grey;
+margin:0px;
+color:gold;
+display:flex;
+justify-content :left;
+align-items:center;
+border-radius:30px;
+#border:1px solid gold;
+
+
+}
+.imageholder{
+
+}
+
+.card{
+width : 110px;
+height : 130px;
+margin-top:30px;
+margin-left:30px;
+
+padding : 15px;
+background-color:#484848;
+border-radius: 20px;
+box-shadow : 0 0 30px 	#181818;
+border:1px solid gold;
+}
+.image{
+
+margin-top:15px
+
+}
+.image1{
+height:80px;
+margin-top:15px
+
+}
+.card:hover{
+transform : scale(1.03);
+box-shadow : 0 0 10px #ffffcc;
+}
+.text{
+
+color:	 #cccc00;
+}
+a {
+text-decoration : none;
+color:gold;
+}
+.set{
+display:flex;}
+
+
+
+.filter-bar  {
+background-color : #7393B3 ;
+border-radius: 10px;
+width : 380px;
+padding:5px;
+
+}
+
+.home{
+display:flex;
+background-color : #36454F;
+padding-top : 8px;
+border-radius: 10px;
+justify-content :left;
+padding-left : 8px;
+
+}
+
+.home a {
+color : white;
+}
+
+.filter-bar input , select , a {
+border-radius: 6px;
+padding:5px;
+margin-left: 10px;
+font-weight: bold ;
+}
+.filter-bar a{
+color:white;
+}
+
+
+.nav-bar{
+display:flex;
+background-color: #2d4A53;
+margin:10px;
+padding: 10px;
+border-radius: 10px;
+justify-content: space-between;
+padding-right:180px;
+}
+
+
+.user_info{
+background-color: #E2DFD2;
+width:500px;
+height : 280px;
+border-radius: 40px;
+margin-left: 80px;
+margin-top: 50px;
+padding-top:30px;
+}
+
+.user_info label {
+margin-left: 40px;
+margin-right: 10px;
+margin-bottom : 200px;
+font-weight: bold;
+border-radius: 40px;
+}
+
+
+.user_info input , select ,option  {
+
+font-weight: bold;
+border-radius: 40px;
+
+}
+
+.iv_space {
+height : 35px;
+}
+
+.user_info h4{
+font-weight: bold;
+font-size: 25px;
+background-color: grey;
+padding-left: 40px;
+}
+
+.product_details{
+margin-left:80px;
+margin-top:30px;
+border-radius: 40px;
+background-color: white;
+width : 800px;
+
+}
+
+.product_details button {
+margin-top:10px;
+margin-bottom:15px;
+margin-left:600px;
+border-radius: 10px;
+width : 100px;
+height : 30px;
+
+}
+
+
+
+
+.product_det  {
+margin-left:20px;
+padding-bottom:30px;
+
+}
+
+.product_det input , select{
+width:100px;
+margin-left:20px;
+}
+
+#rec_count {
+width:10px;
+
+
+}
+
+
+.gst {
+background-color: #E2DFD2;
+width:700px;
+border-radius: 40px;
+margin-left: 80px;
+margin-top: 50px;
+padding-top:30px;
+padding-bottom: 30px;
+}
+
+.gst label {
+margin-left: 40px;
+margin-right: 10px;
+margin-bottom : 200px;
+font-weight: bold;
+border-radius: 40px;
+}
+
+.gst h4{
+font-weight: bold;
+font-size: 25px;
+background-color: grey;
+padding-left: 40px;
+}
+
+.gst input , select ,option  {
+
+font-weight: bold;
+border-radius: 40px;
+
+}
+
+#submit_1 {
+
+margin-left:120px;
+margin-bottom:200px;
+font-weight: bold;
+width:80px;
+height:40px;
+border-radius: 5px;
+
+
+}

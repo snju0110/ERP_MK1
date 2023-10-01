@@ -9,4 +9,5 @@ admin.register(settings_supplier_list)(admin.ModelAdmin)
 admin.register(settings_purchase_status)(admin.ModelAdmin)
 admin.register(settings_payment_status)(admin.ModelAdmin)
 admin.register(settings_godown_list)(admin.ModelAdmin)
+admin.register(stock_update)(admin.ModelAdmin)
 

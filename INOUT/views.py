@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-
+from django.http import JsonResponse
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
@@ -78,7 +78,7 @@ def stockupdate(request):
         'purchase_status': purchase_status,
         'supplier_list': supplier_list,
         'uom': uom,
-        'product' : product
+        'product': product
 
     }
 
@@ -108,36 +108,104 @@ def stock_update_save(request):
         sgst = request.POST['sgst']
         igst = request.POST['igst']
 
-        print(godown , supplier , purchase_status , payment_status , hsn_code , invoice_number , quantity ,uom ,price,due,cgst,sgst,igst)
+        print(godown, supplier, purchase_status, payment_status, hsn_code, invoice_number, quantity, uom, price, due,
+              cgst, sgst, igst)
 
-        data = stock_update(godown = godown ,
-                             supplier_name = supplier ,
-                             purchase_status = purchase_status,
-                             payment_status = payment_status,
-                            variant = variant,
-                            brand = brand,
-                            sub_variant = sub_variant,
-                             hsn_code = hsn_code,
-                             invoice_num = invoice_number,
-                             quantity = quantity,
-                             uom = uom,
-                             price = price ,
-                             due = due,
-                             cgst = cgst,
-                             igst = igst,
-                             sgst = sgst,
-                             date = '2023-09-01',
-                             )
+        data = stock_update(godown=godown,
+                            supplier_name=supplier,
+                            purchase_status=purchase_status,
+                            payment_status=payment_status,
+                            variant=variant,
+                            brand=brand,
+                            sub_variant=sub_variant,
+                            hsn_code=hsn_code,
+                            invoice_num=invoice_number,
+                            quantity=quantity,
+                            uom=uom,
+                            price=price,
+                            due=due,
+                            cgst=cgst,
+                            igst=igst,
+                            sgst=sgst,
+                            date='2023-09-01',
+                            )
         data.save()
 
+    return render(request, 'index.html')
 
-    return render(request ,'index.html')
 
 def stock_update_table(request):
     query1 = stock_update.objects.all()
     context = {
-        'table_data' : query1
+        'table_data': query1
     }
 
+    return render(request, 'Stock_update_table.html', context)
 
-    return render(request ,'Stock_update_table.html' , context)
+
+def update_stock(request):
+    uom = settings_uom.objects.values_list('uom', flat=True)
+    supplier_list = settings_supplier_list.objects.values_list('supplier', flat=True)
+    payment_status = settings_payment_status.objects.values_list('payment_status', flat=True)
+    purchase_status = settings_purchase_status.objects.values_list('purchase_status', flat=True)
+    godowns = settings_godown_list.objects.values_list('godown_list', flat=True)
+    product = settings_product.objects.all()
+    context = {
+
+        'godowns': godowns,
+        'payment_status': payment_status,
+        'purchase_status': purchase_status,
+        'supplier_list': supplier_list,
+        'uom': uom,
+        'product': product
+
+    }
+    return render(request, 'POC_FORM.html', context)
+
+
+def save_stock_data(request):
+    if request.method == 'POST':
+        count = int(request.POST['count'])
+        for i in range(1, count + 1):
+            globals()['sub_variant' + str(i)] = request.POST['sub_variant' + str(i)]
+            globals()['variant' + str(i)] = request.POST['variant' + str(i)]
+            globals()['uom' + str(i)] = request.POST['uom' + str(i)]
+            globals()['qty' + str(i)] = request.POST['qty' + str(i)]
+            globals()['hsn_name' + str(i)] = request.POST['hsn_name' + str(i)]
+            globals()['price' + str(i)] = request.POST['price' + str(i)]
+
+        godown = request.POST['godown']
+        supplier = request.POST['supplier']
+        purchase_status = request.POST['purchase_status']
+        # brand = request.POST['brand']
+        payment_status = request.POST['payment_status']
+        invoice_number = request.POST['invoice_Number']
+        due = request.POST['Payed']
+        cgst = request.POST['cgst']
+        sgst = request.POST['sgst']
+        igst = request.POST['igst']
+
+        for i in range(1, count + 1):
+            data = stock_update(godown=godown,
+                                supplier_name=supplier,
+                                purchase_status=purchase_status,
+                                payment_status=payment_status,
+                                variant=globals()['variant' + str(i)],
+                                brand='brand',
+                                sub_variant=globals()['sub_variant' + str(i)],
+                                hsn_code=globals()['hsn_name' + str(i)],
+                                invoice_num=invoice_number,
+                                quantity=globals()['qty' + str(i)],
+                                uom=globals()['uom' + str(i)],
+                                price=globals()['price' + str(i)],
+                                due=due,
+                                cgst=cgst,
+                                igst=igst,
+                                sgst=sgst,
+                                date='2023-09-01',
+                                )
+            data.save()
+
+
+
+    return JsonResponse({'value': [count]}, safe=False)
