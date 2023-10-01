@@ -160,7 +160,7 @@ def update_stock(request):
         'product': product
 
     }
-    return render(request, 'POC_FORM.html', context)
+    return render(request, 'POC_Form.html', context)
 
 
 def save_stock_data(request):
