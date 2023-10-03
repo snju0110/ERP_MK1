@@ -38,7 +38,7 @@ def check_login(request):
 
 
 def landingpage(request):
-    return render(request, 'index.html')
+    return render(request, 'dashboard.html')
 
 
 def login_page(request):
@@ -131,7 +131,7 @@ def stock_update_save(request):
                             )
         data.save()
 
-    return render(request, 'index.html')
+    return render(request, 'dashboard.html')
 
 
 def stock_update_table(request):
@@ -208,4 +208,15 @@ def save_stock_data(request):
 
 
 
-    return JsonResponse({'value': [count]}, safe=False)
+    # return JsonResponse({'value': [count]}, safe=False)
+    return render(request , 'dashboard.html')
+
+
+def update_outward(request):
+    context = {
+
+        's':'s'
+
+    }
+
+    return render(request, 'outwards_form.html', context)

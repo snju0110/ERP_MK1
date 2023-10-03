@@ -71,7 +71,6 @@ color:gold;
 display:flex;}
 
 
-
 .filter-bar  {
 background-color : #54626F;
 border-radius: 10px;
@@ -88,8 +87,6 @@ margin-top:10px;
 margin-left:20px;
 color : white;
 }
-
-
 
 .home{
 display:flex;
@@ -164,6 +161,7 @@ border-radius: 40px;
 .iv_space {
 height : 35px;
 }
+
 
 .user_info h4{
 font-weight: bold;
@@ -246,14 +244,28 @@ border-radius: 40px;
 
 #submit_1 {
 
-margin-left:120px;
-margin-bottom:200px;
+margin-left:400px;
+margin-bottom:20px;
 font-weight: bold;
 width:80px;
 height:40px;
 border-radius: 5px;
 
 
+}
+
+.check_box {
+margin-left:40px;
+
+}
+
+.check_box label {
+margin-left:10px;
+}
+
+.iv_space button {
+font-weight: bold;
+border-radius : 10px;
 }
 
 .user_info input , select ,option  {

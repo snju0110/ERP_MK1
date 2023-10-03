@@ -30,6 +30,8 @@ urlpatterns = [
     path ('stock_update_table/' , ino.stock_update_table),
     path ('/stock_update/stock_update_table/' , ino.stock_update_table),
     path('update_stock_form/' , ino.update_stock),
-path('save_stock_data/' , ino.save_stock_data)
+    path('save_stock_data/' , ino.save_stock_data),
+    path('update_outwards_form/' , ino.update_outward),
+    # path('save_stock_data/' , ino.save_stock_data),
 
 ]

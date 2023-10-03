@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta  charset="UTF-8" name="viewport" content=" initial-scale= 0.6">
+    <title>Welcome Home!</title>
+    <link rel="stylesheet" href="{% static 'inout_static/dashboard_styles.css' %}">
+
+</head>
+<body class="page">
+
+<div class="nav-bar">
+    <div class = "home">
+<!--        <a href = '/index/'>Home /</a>-->
+
+</div>
+<!--<a class = 'nav-bar-text' href="https://www.example.com" >Home</a>-->
+    <div class = "filter-bar">
+        <a href="/update_stock_form/" > Add Stock Items</a>
+         <a href="/update_stock_form/"> View Stock Items</a>
+    </div>
+
+     <div class = "filter-bar">
+        <a href="/update_outwards_form/"> Add Out Items</a>
+         <a href="/update_stock_form/"> View Out Items</a>
+    </div>
+
+
+        <a href="/index/" id="home" >Home</a>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--prouct etails-->
+
+
+<!--{% for i in data %}-->
+<!--<div class = "imageholder" >-->
+
+<!--    <div class="info">&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp{{i.4}}&nbsp &nbsp &nbsp{{i.3}}</div>-->
+<!--        <img class = "pics" src= "{{i.2.url}}"  width="{{i.0}}" height="{{i.1}}">-->
+<!--        {% if i.5 != 'default.png'%}-->
+<!--        <img class = "pics" src= "{{i.5.url}}"  width="{{i.0}}" height="{{i.1}}">-->
+<!--        {% else %}-->
+<!--        {% endif %}-->
+<!--    </div>-->
+<!--{% endfor %}-->
+</body>
+</html>
+
+<!--<script>-->
+<!-- let count = 0-->
+<!--document.addEventListener("DOMContentLoaded", function () {-->
+<!--    var createDivButton = document.getElementById("createDivButton");-->
+<!--    var container = document.getElementById("container");-->
+<!--     var myLabel = document.getElementById("rec_count");-->
+
+<!--    createDivButton.addEventListener("click", function () {-->
+<!--        count++-->
+<!--        myLabel.value   = count-->
+<!--        // Create a new div element-->
+<!--        var newDiv = document.createElement("div");-->
+<!--        newDiv.className = "product_det"; // Optional: Apply a CSS class for styling-->
+
+<!--        // Create the-->
+<!--&lt;!&ndash;        var drop1 = document.createElement("select");&ndash;&gt;-->
+<!--&lt;!&ndash;        var option1 = document.createElement("option");&ndash;&gt;-->
+<!--&lt;!&ndash;        {% for i in p %}&ndash;&gt;-->
+<!--&lt;!&ndash;        option1.value = "{{i}}";&ndash;&gt;-->
+<!--&lt;!&ndash;        option1.textContent = "{{i}}" ;&ndash;&gt;-->
+<!--&lt;!&ndash;        drop1.add(option1);&ndash;&gt;-->
+<!--&lt;!&ndash;        {% endfor %}&ndash;&gt;-->
+
+
+
+<!--         var sub_variant = document.createElement("select");-->
+<!--         sub_variant.name = "sub_variant"+count-->
+<!--         console.log("hello")-->
+<!--         console.log(sub_variant.name)-->
+<!--            {% for i in product %}-->
+<!--                var option = document.createElement("option");-->
+<!--                option.text = "{{i.variant}}";-->
+<!--                sub_variant.add(option);-->
+<!--               {% endfor %}-->
+
+<!--          var variant = document.createElement("select");-->
+<!--          variant.name = "variant"+count-->
+<!--            {% for i in product %}-->
+<!--                var option = document.createElement("option");-->
+<!--                option.text = "{{i.sub_variant}}";-->
+<!--                variant.add(option);-->
+<!--               {% endfor %}-->
+
+<!--        var hsn = document.createElement("input");-->
+<!--        hsn.type = "text";-->
+<!--        hsn.name = "hsn_name"+count-->
+<!--        console.log("hsn_name"+count)-->
+<!--        hsn.placeholder = "HSN";-->
+
+<!--        var qty = document.createElement("input");-->
+<!--        qty.name = "qty"+count-->
+<!--        qty.type = "text";-->
+<!--        qty.placeholder = "Qty";-->
+
+<!--            var uom = document.createElement("select");-->
+<!--            uom.name = "uom"+count-->
+<!--            {% for i in uom %}-->
+<!--                var option = document.createElement("option");-->
+<!--                option.text = "{{i}}";-->
+<!--                uom.add(option);-->
+<!--               {% endfor %}-->
+
+
+<!--        var price = document.createElement("input");-->
+<!--        price.name = "price"+count-->
+<!--        price.type = "text";-->
+<!--        price.placeholder = "price";-->
+
+<!--        // Append the text input boxes to the div-->
+<!--        newDiv.appendChild(variant);-->
+<!--        newDiv.appendChild(sub_variant)-->
+<!--        newDiv.appendChild(hsn);-->
+<!--        newDiv.appendChild(qty);-->
+<!--        newDiv.appendChild(uom);-->
+<!--        newDiv.appendChild(price);-->
+
+
+
+<!--        // Append the new div to the container-->
+<!--        container.appendChild(newDiv);-->
+<!--    });-->
+<!--});-->
+
+<!--</script>-->
