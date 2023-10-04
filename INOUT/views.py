@@ -220,3 +220,16 @@ def update_outward(request):
     }
 
     return render(request, 'outwards_form.html', context)
+
+
+def view_stock_detail(request):
+    query1 = stock_update.objects.all()
+    context = {
+        'table_data': query1
+    }
+
+    return render(request, 'view_stock_detail.html' , context)
+
+def view_outwards_detail(request):
+
+    return render(request, 'dashboard.html' )

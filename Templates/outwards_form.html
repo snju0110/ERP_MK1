@@ -9,24 +9,28 @@
 </head>
 <body class="page">
 
-<div class="nav-bar">
-    <div class = "home">
 
+<div class="nav-bar">
+    <div>
+<!--        <a href = '/index/'>Home /</a>-->
 </div>
 <!--<a class = 'nav-bar-text' href="https://www.example.com" >Home</a>-->
     <div class = "filter-bar">
         <a href="/update_stock_form/" > Add Stock Items</a>
-         <a href="/update_stock_form/"> View Stock Items</a>
+         <a href="/view_stock_detail/"> View Stock Items</a>
     </div>
 
      <div class = "filter-bar">
         <a href="/update_outwards_form/"> Add Out Items</a>
-         <a href="/update_stock_form/"> View Out Items</a>
+         <a href="/view_outwards_detail/"> View Out Items</a>
     </div>
 
-       <a href="/index/" id="home" >Home</a>
+        <a href="/index/" class="home" >Home</a>
+         <a href="/admin/"  class="home" >settings</a>
+
 
 </div>
+
 
 
 <form method="POST" action = '/save_stock_data/'>

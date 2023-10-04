@@ -71,6 +71,7 @@ color:gold;
 display:flex;}
 
 
+
 .filter-bar  {
 background-color : #54626F;
 border-radius: 10px;
@@ -87,6 +88,8 @@ margin-top:10px;
 margin-left:20px;
 color : white;
 }
+
+
 
 .home{
 display:flex;
@@ -108,9 +111,7 @@ padding:5px;
 margin-left: 10px;
 font-weight: bold ;
 }
-.filter-bar a{
-color:white;
-}
+
 
 
 .nav-bar{
@@ -130,6 +131,7 @@ padding:10px;
 color:white;
 
 }
+
 
 
 .user_info{
@@ -158,119 +160,40 @@ border-radius: 40px;
 
 }
 
-.iv_space {
-height : 35px;
-}
-
-
-.user_info h4{
-font-weight: bold;
-font-size: 25px;
-background-color: grey;
-padding-left: 40px;
-}
-
-.product_details{
-margin-left:80px;
+.table {
+width: 90%;
 margin-top:30px;
-border-radius: 40px;
-background-color: white;
-width : 800px;
+margin-left:50px;
+margin-right:50px;
+border-collapse: collapse;
+font-family: Arial, sans-serif;
 
 }
 
-.product_details button {
-margin-top:10px;
-margin-bottom:15px;
-margin-left:600px;
-border-radius: 10px;
-width : 100px;
-height : 30px;
-
+th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 8px;
+    border-bottom: 2px solid #ddd;
 }
 
-
-
-
-.product_det  {
-margin-left:20px;
-padding-bottom:30px;
-
+/* Style the table rows */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
-.product_det input , select{
-width:100px;
-margin-left:20px;
+tr:nth-child(odd) {
+    background-color: #ffffff;
 }
 
-#rec_count {
-width:10px;
-
-
+/* Style the table cells (td) */
+td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
 }
 
-
-.gst {
-background-color: #E2DFD2;
-width:700px;
-border-radius: 40px;
-margin-left: 80px;
-margin-top: 50px;
-padding-top:30px;
-padding-bottom: 30px;
-}
-
-.gst label {
-margin-left: 40px;
-margin-right: 10px;
-margin-bottom : 200px;
-font-weight: bold;
-border-radius: 40px;
-}
-
-.gst h4{
-font-weight: bold;
-font-size: 25px;
-background-color: grey;
-padding-left: 40px;
-}
-
-.gst input , select ,option  {
-
-font-weight: bold;
-border-radius: 40px;
-
-}
-
-#submit_1 {
-
-margin-left:400px;
-margin-bottom:20px;
-font-weight: bold;
-width:80px;
-height:40px;
-border-radius: 5px;
-
-
-}
-
-.check_box {
-margin-left:40px;
-
-}
-
-.check_box label {
-margin-left:10px;
-}
-
-.iv_space button {
-font-weight: bold;
-border-radius : 10px;
-}
-
-.user_info input , select ,option  {
-
-font-weight: bold;
-border-radius: 40px;
-
+/* Add hover effect to table rows */
+tr:hover {
+    background-color: #ddd;
+     transform: scale(1.05);
 }

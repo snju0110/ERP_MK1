@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta  charset="UTF-8" name="viewport" content=" initial-scale= 0.6">
+    <title>Welcome Home!</title>
+    <link rel="stylesheet" href="{% static 'inout_static/view_stock_styles.css' %}">
+
+</head>
+<body class="page">
+
+
+<div class="nav-bar">
+    <div>
+<!--        <a href = '/index/'>Home /</a>-->
+</div>
+<!--<a class = 'nav-bar-text' href="https://www.example.com" >Home</a>-->
+    <div class = "filter-bar">
+        <a href="/update_stock_form/" > Add Stock Items</a>
+         <a href="/view_stock_detail/"> View Stock Items</a>
+    </div>
+
+     <div class = "filter-bar">
+        <a href="/update_outwards_form/"> Add Out Items</a>
+         <a href="/view_outwards_detail/"> View Out Items</a>
+    </div>
+
+        <a href="/index/" class="home" >Home</a>
+         <a href="/admin/"  class="home" >settings</a>
+
+
+</div>
+
+
+<div>
+ <table class="table">
+                    <thead>
+                      <tr class="text-nowrap">
+                        <th>hsn_code</th>
+                        <th>brand</th>
+                        <th>variant</th>
+                        <th>sub_variant</th>
+                        <th>quantity</th>
+                        <th>uom</th>
+                        <th>invoice_num</th>
+                        <th>supplier_name</th>
+                        <th>purchase_status</th>
+                        <th>payment_status</th>
+                        <th>godown</th>
+                        <th>due</th>
+                        <th>price</th>
+
+                      </tr>
+                    </thead>
+                       <tbody>
+                       {% for i in table_data %}
+                      <tr>
+<!--                        <th scope="row">1</th>-->
+                        <td>{{i.hsn_code}}</td>
+                         <td>{{i.brand}}</td>
+                        <td>{{i.variant}}</td>
+                        <td>{{i.sub_variant}}</td>
+                        <td>{{i.quantity}}</td>
+                        <td>{{i.uom}}</td>
+                        <td>{{i.invoice_num}}</td>
+                        <td>{{i.supplier_name}}</td>
+                        <td>{{i.purchase_status}}</td>
+                        <td>{{i.payment_status}}</td>
+                        <td>{{i.godown}}</td>
+                        <td>{{i.due}}</td>
+                        <td>{{i.price}}</td>
+                      </tr>
+                    {% endfor %}
+                    <tbody>
+                  </table>
+
+    </div>
+</body>
+</html>
+
